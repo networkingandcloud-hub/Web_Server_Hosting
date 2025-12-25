@@ -1,0 +1,189 @@
+Web Server (IIS) in Windows Server
+Definition
+
+A Web Server hosts websites and delivers web pages to users using:
+
+HTTP
+
+HTTPS
+
+In Windows Server, the web server service is called IIS (Internet Information Services).
+
+Requirement
+
+Windows Server installed
+
+Static IP configured
+
+Logged in as Administrator
+
+DNS Server (optional but recommended)
+
+Example Used
+Server Name: WEB01
+Website Folder: C:\WebSite
+Port: 80
+URL: http://server1.company.local
+
+PART 1: Install IIS Web Server Role
+Step 1: Open Server Manager
+
+Login to Windows Server
+
+Open Server Manager
+
+Step 2: Add Roles and Features
+
+Click Manage
+
+Select Add Roles and Features
+
+Click Next
+
+Select Role-based or feature-based installation
+
+Click Next
+
+Select Local Server
+
+Click Next
+
+Step 3: Select Web Server (IIS)
+
+Select Web Server (IIS)
+
+Click Add Features
+
+Click Next
+
+Click Next
+
+Click Install
+
+Step 4: Installation Complete
+
+IIS Web Server is now installed
+
+PART 2: Verify IIS Installation
+Step 1: Open Browser
+
+Open web browser on server
+
+Enter:
+
+http://localhost
+
+Verification
+
+IIS Default Page is displayed
+
+Web Server is working
+
+PART 3: Create Website Folder
+Step 1: Create Folder
+
+Create folder:
+
+C:\WebSite
+
+Step 2: Create HTML File
+
+Open Notepad
+
+Add:
+
+<html>
+<body>
+<h1>Welcome to IIS Web Server</h1>
+</body>
+</html>
+
+
+Save as:
+
+index.html
+
+
+Save location:
+
+C:\WebSite
+
+PART 4: Set NTFS Permissions
+Step 1: Configure Permissions
+
+Right-click C:\WebSite
+
+Click Properties
+
+Open Security tab
+
+Click Edit
+
+Add:
+
+IIS_IUSRS
+
+
+Allow:
+
+Read
+
+Read & Execute
+
+Click Apply
+
+Click OK
+
+PART 5: Create New Website in IIS
+Step 1: Open IIS Manager
+
+Open Server Manager
+
+Click Tools
+
+Select Internet Information Services (IIS) Manager
+
+Step 2: Add Website
+
+Right-click Sites
+
+Click Add Website
+
+Step 3: Website Details
+Site Name: CompanySite
+Physical Path: C:\WebSite
+Binding Type: http
+IP Address: All Unassigned
+Port: 80
+Host Name: server1.company.local
+
+
+Click OK
+
+PART 6: Configure DNS (Optional)
+Create DNS A Record
+Name: server1
+IP Address: 192.168.1.10
+
+PART 7: Access Website from Client
+From Client Browser
+http://server1.company.local
+
+
+or
+
+http://192.168.1.10
+
+Verification
+
+Website loads successfully
+
+HTML page is displayed
+
+Common IIS Commands
+iisreset
+
+Conclusion
+
+IIS Web Server has been successfully installed and configured in Windows Server.
+The server is now hosting a website and accessible from client machines.
